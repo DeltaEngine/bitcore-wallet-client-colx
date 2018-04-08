@@ -15,10 +15,10 @@ var tingodb = require('tingodb')({
 
 var log = require('../lib/log');
 
-var Bitcore = require('bitcore-lib-dash');
-var BitcorePayPro = require('bitcore-payment-protocol-dash');
+var Bitcore = require('bitcore-lib-colx');
+//unused: var BitcorePayPro = require('bitcore-payment-protocol-colx');
 
-var BWS = require('bitcore-wallet-service-dash');
+var BWS = require('bitcore-wallet-service-colx');
 
 var Common = require('../lib/common');
 var Constants = Common.Constants;
@@ -2639,7 +2639,7 @@ describe('client API', function() {
           });
         });
       });
-
+/*unused
       it('Should send correct refund address', function(done) {
         clients[0].getTxProposals({}, function(err, txps) {
           should.not.exist(err);
@@ -2704,8 +2704,8 @@ describe('client API', function() {
           });
         });
       });
+      */
     });
-
     describe('1-of-1 wallet', function() {
       beforeEach(function(done) {
         http = sinon.stub();
@@ -2735,7 +2735,7 @@ describe('client API', function() {
           });
         });
       });
-
+      /*
       it('Should send correct refund address', function(done) {
         clients[0].getTxProposals({}, function(err, txps) {
           should.not.exist(err);
@@ -2793,6 +2793,7 @@ describe('client API', function() {
           });
         });
       });
+      */
     });
 
     describe('New proposal flow', function() {
@@ -2833,7 +2834,7 @@ describe('client API', function() {
           });
         });
       });
-
+/*
       it('Should Create and Verify a Tx from PayPro', function(done) {
         clients[1].getTxProposals({}, function(err, txps) {
           should.not.exist(err);
@@ -2845,7 +2846,8 @@ describe('client API', function() {
           tx.payProUrl.should.equal('dummy');
           done();
         });
-      });
+      });    
+*/
     });
   });
 

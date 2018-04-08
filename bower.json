@@ -1,17 +1,17 @@
 {
-  "name": "bitcore-wallet-client-dash",
+  "name": "bitcore-wallet-client-colx",
   "main": "index.js",
-  "version": "2.1.1",
-  "homepage": "https://github.com/dashpay/bitcore-wallet-client-dash",
+  "version": "1.0",
+  "homepage": "https://github.com/deltaengine/bitcore-wallet-client-colx",
   "authors": ["BitPay Inc"],
-  "description": "Client for bitcore-wallet-service-dash",
+  "description": "Client for bitcore-wallet-service-colx",
   "keywords": [
-    "dash",
-    "copay-dash",
+    "colx",
+    "copay",
     "multisig",
     "wallet",
     "client",
-    "bitcore-dash"
+    "bitcore-colx"
   ],
   "ignore": [
     "**/.*",

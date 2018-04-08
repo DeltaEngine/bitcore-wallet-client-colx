@@ -1,38 +1,30 @@
-# Bitcore-Dash Wallet Client
+# Bitcore Wallet Client for ColossusXT (COLX)
 
-[![NPM Package](https://img.shields.io/npm/v/bitcore-wallet-client-dash.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-wallet-client-dash)
-[![Build Status](https://img.shields.io/travis/dashpay/bitcore-wallet-client-dash.svg?branch=master&style=flat-square)](https://travis-ci.org/dashpay/bitcore-wallet-client-dash)
-[![Coverage Status](https://coveralls.io/repos/dashpay/bitcore-wallet-client-dash/badge.svg)](https://coveralls.io/r/dashpay/bitcore-wallet-client-dash)
-
-The *official* client library for [bitcore-wallet-service-dash] (https://github.com/dashpay/bitcore-wallet-service-dash).
+The *official* client library for [bitcore-wallet-service-colx] (https://github.com/deltaengine/bitcore-wallet-service-colx).
 
 ## Description
 
-This package communicates with BWS [bitcore-dash wallet service](https://github.com/dashpay/bitcore-wallet-service-dash) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
-
-See [bitcore-wallet-dash] (https://github.com/dashpay/bitcore-wallet-dash) for a simple CLI wallet implementation that relays on BWS and uses bitcore-wallet-client-dash.
+This package communicates with BWS [bitcore wallet service for colx](https://github.com/deltaengine/bitcore-wallet-service-colx) using the REST API. All REST endpoints are wrapped as simple async methods. All relevant responses from BWS are checked independently by the peers, thus the importance of using this library when talking to a third party BWS instance.
 
 ## Get Started
 
-You can start using bitcore-wallet-client-dash in any of these two ways:
+You can start using bitcore-wallet-client-colx in any of these two ways:
 
-* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client-dash` from your console
-* or via [NPM](https://www.npmjs.com/package/bitcore-wallet-client-dash): by running `npm install bitcore-wallet-client-dash` from your console.
+* via [Bower](http://bower.io/): by running `bower install bitcore-wallet-client-colx` from your console
+* or via [NPM](https://www.npmjs.com/): by running `npm install bitcore-wallet-client-colx` from your console.
 
 ## Example
 
-Start your own local [bitcore-dash wallet service](https://github.com/dashpay/bitcore-wallet-service-dash) instance. In this example we assume you have `bitcore-wallet-service-dash` running on your `localhost:3232`.
+Start your own local [bitcore wallet service for colx](https://github.com/deltaengine/bitcore-wallet-service-colx) instance. In this example we assume you have `bitcore-wallet-service-colx` running on your `localhost:3232`.
 
 Then create two files `irene.js` and `tomas.js` with the content below:
 
 **irene.js**
 
 ``` javascript
-var Client = require('bitcore-wallet-client-dash');
-
-
+var Client = require('bitcore-wallet-client-colx');
 var fs = require('fs');
-var BWS_INSTANCE_URL = 'https://bws.dev.dash.org/bws/api'
+var BWS_INSTANCE_URL = 'http://localhost:3232/bws/api'
 
 var client = new Client({
   baseUrl: BWS_INSTANCE_URL,
@@ -53,17 +45,13 @@ client.createWallet("My Wallet", "Irene", 2, 2, {network: 'testnet'}, function(e
 **tomas.js**
 
 ``` javascript
-
-var Client = require('bitcore-wallet-client-dash');
-
-
+var Client = require('bitcore-wallet-client-colx');
 var fs = require('fs');
-var BWS_INSTANCE_URL = 'https://bws.dev.dash.org/bws/api'
+var BWS_INSTANCE_URL = 'http://localhost:3232/bws/api'
 
 var secret = process.argv[2];
 if (!secret) {
   console.log('./tomas.js <Secret>')
-
   process.exit(0);
 }
 
@@ -77,26 +65,21 @@ client.joinWallet(secret, "Tomas", {}, function(err, wallet) {
     console.log('error: ', err);
     return
   };
-
   console.log('Joined ' + wallet.name + '!');
   fs.writeFileSync('tomas.dat', client.export());
-
-
   client.openWallet(function(err, ret) {
     if (err) {
       console.log('error: ', err);
       return
     };
-    console.log('\n\n** Wallet Info', ret); //TODO
-
-    console.log('\n\nCreating first address:', ret); //TODO
+    console.log('\n\n** Wallet Info', ret);
+    console.log('\n\nCreating first address:', ret);
     if (ret.wallet.status == 'complete') {
       client.createAddress({}, function(err,addr){
         if (err) {
           console.log('error: ', err);
           return;
         };
-
         console.log('\nReturn:', addr)
       });
     }
@@ -104,10 +87,10 @@ client.joinWallet(secret, "Tomas", {}, function(err, wallet) {
 });
 ```
 
-Install `bitcore-wallet-client-dash` before start:
+Install `bitcore-wallet-client-colx` before start:
 
 ```
-npm i bitcore-wallet-client-dash
+npm i bitcore-wallet-client-colx
 ```
 
 Create a new wallet with the first script:
@@ -785,7 +768,7 @@ Returns exchange rate for the specified currency & timestamp.
 
 **opts.ts**: `Date`, A timestamp to base the rate on (default Date.now()).
 
-**opts.provider**: `String`, A provider of exchange rates (default 'dashpay').
+**opts.provider**: `String`, A provider of exchange rates (default 'colx').
 
 **Returns**: `Object`, rates - The exchange rate.
 
@@ -1083,22 +1066,12 @@ Check transaction proposal
 **isLegit**: `Boolean`, Check transaction proposal
 
 
-
-
 * * *
-
-
-
-
-
-
-
-
 
 
 The MIT License
 
-Copyright (c) 2015 dashpay
+Copyright (c) 2015 BitPay
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
