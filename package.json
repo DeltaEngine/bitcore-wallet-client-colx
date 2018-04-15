@@ -26,9 +26,9 @@
   "dependencies": {
     "async": "^0.9.0",
     "bip38": "^1.3.0",
-    "bitcore-lib-colx": "^0.13.20",
-    "bitcore-mnemonic-colx": "^1.2.3",
-    "bitcore-wallet-service-colx": "^2.11.2",
+    "bitcore-lib-colx": "github:deltaengine/bitcore-lib-colx",
+    "bitcore-mnemonic-colx": "github:deltaengine/bitcore-mnemonic-colx",
+    "bitcore-wallet-service-colx": "github:deltaengine/bitcore-wallet-service-colx",
     "browser-request": "^0.3.3",
     "json-stable-stringify": "^1.0.0",
     "lodash": "^3.3.1",
