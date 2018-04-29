@@ -31,21 +31,20 @@
     "bitcore-wallet-service-colx": "github:deltaengine/bitcore-wallet-service-colx",
     "browser-request": "^0.3.3",
     "json-stable-stringify": "^1.0.0",
-    "lodash": "^3.3.1",
+    "lodash": "^4.17.4",
     "preconditions": "^1.0.8",
-    "request": "^2.53.0",
-    "sjcl": "^1.0.2"
+    "sjcl": "1.0.3",
+    "superagent": "^3.4.1"
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
+    "browserify": "^13.1.0",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
     "grunt": "~0.4.0",
-    "grunt-jsdox": "^0.1.7",
     "istanbul": "*",
     "mocha": "^1.18.2",
     "sinon": "^1.10.3",
-    "supertest": "*",
+    "supertest": "^3.0.0",
     "tingodb": "^0.3.4",
     "uglify": "^0.1.1",
     "uuid": "^2.0.1"
