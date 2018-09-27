@@ -1,6 +1,6 @@
 //put in new directory, run 'npm i bitcore-wallet-client-colx' and then execute with 'node'
 var Client = require('bitcore-wallet-client-colx');
-var BWS_INSTANCE_URL = 'http://localhost:3232/bws/api'
+var BWS_INSTANCE_URL = 'http://colxexplorer.deltaengine.net:3232/bws/api'
 var client = new Client({ baseUrl: BWS_INSTANCE_URL, verbose: false });
 client.joinWallet("//use output from testCreateWallet.js here", "Bla", {}, function(err, wallet) {
   if (err) {
@@ -20,6 +20,8 @@ client.joinWallet("//use output from testCreateWallet.js here", "Bla", {}, funct
         return;
       };
       console.log('Address created: ', addr);
+
+      
     });
   });
 });
